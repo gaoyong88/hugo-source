@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>用Hugo来建立网站 - Yong Gao</title>
+    <meta property="og:title" content="用Hugo来建立网站 - Yong Gao">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="记录一下我建立这个网站的过程。
+[&amp;hellip;] 这里是Hugo的网站。我从它指引的github链接中，下载了windows的安装包“hugo_0.98.0_Windows-64bit.zip”。
+[&amp;hellip;] 建立文件夹d:\mywork\Hugo，在下面建立子文件夹d:\mywork\Hugo\bin和d:\mywork\Hugo\sites。
+[&amp;hellip;] 把安装包解压缩 &amp;hellip;">
+      <meta property="og:description" content="记录一下我建立这个网站的过程。
+[&amp;hellip;] 这里是Hugo的网站。我从它指引的github链接中，下载了windows的安装包“hugo_0.98.0_Windows-64bit.zip”。
+[&amp;hellip;] 建立文件夹d:\mywork\Hugo，在下面建立子文件夹d:\mywork\Hugo\bin和d:\mywork\Hugo\sites。
+[&amp;hellip;] 把安装包解压缩 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="blog">
+    <header class="masthead">
+      <h1><a href="../../">Yong Gao</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="../../">首页</a></li>
+  
+  <li><a href="../../blog">日志</a></li>
+  
+  <li><a href="../../teaching">教学</a></li>
+  
+  <li><a href="../../translation">翻译</a></li>
+  
+  <li><a href="../../publication">发表</a></li>
+  
+  <li><a href="../../other">其他</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>用Hugo来建立网站</h1>
+
+<h3>
+  2022-05-07</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>记录一下我建立这个网站的过程。</p>
+<h4 id="下载hugo">下载Hugo</h4>
+<ul>
+<li>
+<p>这里是<a href="https://gohugo.io/">Hugo的网站</a>。我从它指引的<a href="https://github.com/gohugoio/hugo/releases">github链接</a>中，下载了windows的安装包“<a href="https://github.com/gohugoio/hugo/releases/download/v0.98.0/hugo_0.98.0_Windows-64bit.zip">hugo_0.98.0_Windows-64bit.zip</a>”。</p>
+</li>
+<li>
+<p>建立文件夹<code>d:\mywork\Hugo</code>，在下面建立子文件夹<code>d:\mywork\Hugo\bin</code>和<code>d:\mywork\Hugo\sites</code>。</p>
+</li>
+<li>
+<p>把安装包解压缩在<code>d:\mywork\Hugo\bin</code> 文件夹中。</p>
+</li>
+</ul>
+<h4 id="将hugo加入到windows路径设置中">将Hugo加入到Windows路径设置中</h4>
+<ul>
+<li>右击“开始”—&gt;系统—&gt;高级系统设置—&gt;环境变量—&gt;在用户变量中找到path—&gt;编辑—&gt;浏览</li>
+<li>选择你的<code>d:\mywork\Hugo\bin</code> 文件夹</li>
+<li>然后确定。</li>
+</ul>
+<h4 id="创建网站">创建网站</h4>
+<ul>
+<li>右击“开始”—&gt;Windows Power Shell</li>
+</ul>
+<pre tabindex="0"><code>C:\Program Files&gt; cd d:\mywork\Hugo\sites
+D:\mywork\Hugo\sites&gt;hugo new site my_site
+</code></pre><ul>
+<li>可以看到my_site文件夹下已经有了不少内容。</li>
+</ul>
+<h4 id="获取theme">获取theme</h4>
+<p>我找到了谢益辉的一个主题。</p>
+<pre tabindex="0"><code>cd my_site
+git init
+git submodule add https://github.com/yihui/hugo-ivy.git themes/hugo-ivy
+</code></pre><h4 id="编写config文件">编写config文件</h4>
+<p>在my_site文件夹下找到config文件，加入一些简单的内容。</p>
+<pre tabindex="0"><code>baseurl = &#34;https://localhost:1313/&#34;
+RelativeURLs=true
+CanonifyURLs=true
+languageCode = &#34;zh-cn&#34;	              
+DefaultContentLanguage = &#34;zh-cn&#34;
+
+title = &#34;Yong Gao&#34;
+theme = &#34;hugo-ivy&#34;
+
+[menu]
+
+[[menu.main]]
+    name = &#34;首页&#34;
+    url = &#34;/&#34;
+    weight = 1
+
+[[menu.main]]
+    name = &#34;日志&#34;
+    url = &#34;/blog&#34;
+    weight = 2
+
+[[menu.main]]
+    name = &#34;教学&#34;
+    url = &#34;/teaching&#34;
+    weight = 3
+
+[[menu.main]]
+    name = &#34;翻译&#34;
+    url = &#34;/translation&#34;
+    weight = 4
+
+[[menu.main]]
+    name = &#34;发表&#34;
+    url = &#34;/publication&#34;
+    weight = 5
+
+[[menu.main]]
+    name = &#34;其他&#34;
+    url = &#34;/other&#34;
+    weight = 6
+</code></pre><h4 id="编写首页内容">编写首页内容</h4>
+<p>在<code>..\my_site\content</code>文件夹下生成一个markdown文件<code>_index.md</code>，然后编辑。</p>
+<pre tabindex="0"><code>我目前在中国政法大学社会学院教书。
+建立这个网站，最初动机是分享自己论文中的一些数据分析代码。
+但既然已经折腾了一番，也就在这里顺便写点别的东西吧。
+</code></pre><p>在<code>..\my_site\content</code>文件夹下生成与config文件中相应的子目录，如<code>\publication</code>，<code>\other</code>等。</p>
+<p>然后分别加一些相应的markdown文件。</p>
+<h4 id="预览">预览</h4>
+
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
