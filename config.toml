@@ -1,0 +1,40 @@
+baseurl = "https://localhost:1313/"
+RelativeURLs=true
+CanonifyURLs=true
+languageCode = "zh-cn"	              
+DefaultContentLanguage = "zh-cn"
+
+title = "Yong Gao"
+theme = "hugo-ivy"
+
+[menu]
+
+[[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "日志"
+    url = "/blog"
+    weight = 2
+
+[[menu.main]]
+    name = "教学"
+    url = "/teaching"
+    weight = 3
+
+[[menu.main]]
+    name = "翻译"
+    url = "/translation"
+    weight = 4
+
+[[menu.main]]
+    name = "发表"
+    url = "/publication"
+    weight = 5
+
+[[menu.main]]
+    name = "其他"
+    url = "/other"
+    weight = 6
